@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 //@Configuration
-public class SecurityConfig /*extends WebSecurityConfigurerAdapter */{
+public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
 
     private final AccountDetailsService accountDetailsService;
     private final BeginnerJWTFilter beginnerJWTFilter;
@@ -32,26 +32,40 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */{
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-         return httpSecurity
-                 .csrf().disable()
-                 .authorizeRequests().antMatchers(HttpMethod.POST,"/master/addMaster", "/participant/addParticipant", "/sender").permitAll()
-                 .and()
-                 .authorizeRequests().antMatchers(HttpMethod.GET,"/master/addMaster", "/participant/addParticipant", "/sender").permitAll()
-                 .anyRequest().authenticated()
-                 .and()
-                 .addFilterBefore(beginnerJWTFilter, UsernamePasswordAuthenticationFilter.class)
-                 .formLogin().permitAll()
-                 .defaultSuccessUrl("/", true)
-                 .and()
-                 .addFilterAfter(afterJWTFilter, UsernamePasswordAuthenticationFilter.class)
-                 .sessionManagement()
-                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                 .and()
-                 .build();
+        return httpSecurity
+                .csrf().disable()
+                .authorizeRequests().antMatchers(HttpMethod.POST, "/master/addMaster",
+                        "/participant/addParticipant",
+                        "/sender",
+                        "/swagger-ui/*",
+                        "/swagger-ui.html",
+                        "/start",
+                        "/swagger.html",
+                        "/v1-api-YOGA-account").permitAll()
+                .and()
+                .authorizeRequests().antMatchers(HttpMethod.GET, "/master/addMaster",
+                        "/participant/addParticipant",
+                        "/sender",
+                        "/swagger-ui/*",
+                        "/swagger-ui.html",
+                        "/start",
+                        "/swagger.html",
+                        "/v1-api-YOGA-account").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .addFilterBefore(beginnerJWTFilter, UsernamePasswordAuthenticationFilter.class)
+                .formLogin().permitAll()
+                .defaultSuccessUrl("/", true)
+                .and()
+                .addFilterAfter(afterJWTFilter, UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .and()
+                .build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

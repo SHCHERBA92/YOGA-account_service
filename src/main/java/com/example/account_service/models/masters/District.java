@@ -20,8 +20,8 @@ public class District {
     @Enumerated(EnumType.STRING)
     private DistrictName districtName;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne (fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+    //    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     private City city;
 

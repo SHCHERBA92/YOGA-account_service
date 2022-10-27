@@ -22,7 +22,7 @@ public class City {
     @Enumerated(EnumType.STRING)
     private CityName cityName;
 
-//    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    //    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     @OneToMany(mappedBy = "city")
     private List<Master> master;
 

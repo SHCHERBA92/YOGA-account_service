@@ -10,6 +10,7 @@ import com.example.account_service.models.security.Account;
 import com.example.account_service.services.*;
 import com.example.account_service.services.mq.ProducerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/master")
+@ApiResponse
 public class MasterController {
 
     private final AccountService accountService;
@@ -72,7 +74,8 @@ public class MasterController {
 
         var currentCity = cityService.getCityByName(modelMapper.map(masterDTO, City.class).getCityName());
 
-        List<DistrictName> currentDistrictNames = modelMapper.map(masterDTO.getDistrictNames(), new TypeToken<>(){}.getType());
+        List<DistrictName> currentDistrictNames = modelMapper.map(masterDTO.getDistrictNames(), new TypeToken<>() {
+        }.getType());
         var currentDistricts = currentDistrictNames.stream()
                 //TODO: проверять районы из БД - если их там нет, то добалять
                 .map(districtName -> new District(districtName))
@@ -91,7 +94,7 @@ public class MasterController {
         districtService.addAllDistrict(currentDistricts);
 
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(URI.create("http://localhost:8081/sender?email="+currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
+                .location(URI.create("http://localhost:8081/sender?email=" + currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
                 .build();
     }
 }

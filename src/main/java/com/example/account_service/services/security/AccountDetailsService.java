@@ -20,6 +20,7 @@ public class AccountDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //TODO: сделать кастомный запрос , так как болшьшой запрос от hibernate для взятия аккаунта из БД
         var user = accountRepository.findByEmail(username).orElseThrow(() -> new RuntimeException("Такой пользователь не найдень"));
         return new AccountDetails(user);
     }

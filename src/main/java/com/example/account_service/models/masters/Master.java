@@ -33,7 +33,7 @@ public class Master {
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     private City city;
 
-//    @OneToOne
+    //    @OneToOne
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;

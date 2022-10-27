@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
 
     @Bean
-    public Queue queueEmail(){
+    public Queue queueEmail() {
         return new Queue("queueEmail");
     }
 
     @Bean
-    public Binding bindingEmail(){
+    public Binding bindingEmail() {
         return BindingBuilder.bind(queueEmail()).to(directExchange()).with("emailKey");
     }
 
     @Bean
-    public DirectExchange directExchange(){
+    public DirectExchange directExchange() {
         return new DirectExchange("emailExchange");
     }
 

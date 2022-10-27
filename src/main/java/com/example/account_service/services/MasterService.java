@@ -14,8 +14,8 @@ public class MasterService {
         this.masterRepository = masterRepository;
     }
 
-//    @Transactional(propagation = Propagation.MANDATORY)
-    public void addNewMaster(Master master){
+    //    @Transactional(propagation = Propagation.MANDATORY)
+    public void addNewMaster(Master master) {
         masterRepository.save(master);
     }
 }

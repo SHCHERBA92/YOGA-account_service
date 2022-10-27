@@ -65,7 +65,8 @@ public class ParticipantController {
 
         var currentCity = cityService.getCityByName(modelMapper.map(participantDTO, City.class).getCityName());
 
-        List<DistrictName> currentDistrictNames = modelMapper.map(participantDTO.getDistrictNames(), new TypeToken<>(){}.getType());
+        List<DistrictName> currentDistrictNames = modelMapper.map(participantDTO.getDistrictNames(), new TypeToken<>() {
+        }.getType());
         var currentDistricts = currentDistrictNames.stream()
                 //TODO: проверять районы из БД - если их там нет, то добалять
                 .map(districtName -> new District(districtName))
@@ -84,7 +85,7 @@ public class ParticipantController {
         districtService.addAllDistrict(currentDistricts);
 
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(URI.create("http://localhost:8081/sender?email="+currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
+                .location(URI.create("http://localhost:8081/sender?email=" + currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
                 .build();
     }
 }

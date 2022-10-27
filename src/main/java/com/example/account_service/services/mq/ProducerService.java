@@ -23,12 +23,12 @@ public class ProducerService {
         this.directExchange = directExchange;
     }
 
-    public void sendDataForEmail(String email, String code){
+    public void sendDataForEmail(String email, String code) {
         template.setExchange(directExchange.getName());
         MessageForMail messageForMail = new MessageForMail();
         messageForMail.setEmail(email);
         messageForMail.setKod(code);
         Message message = new Message(messageForMail.toString().getBytes(StandardCharsets.UTF_8));
-        template.send("emailKey",message);
+        template.send("emailKey", message);
     }
 }

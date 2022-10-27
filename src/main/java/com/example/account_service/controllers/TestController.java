@@ -13,24 +13,13 @@ import com.example.account_service.services.DistrictService;
 import com.example.account_service.services.MasterService;
 import com.example.account_service.services.ParticipantService;
 import com.example.account_service.services.mq.ProducerService;
-import org.apache.catalina.connector.Response;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
-import java.net.URI;
-import java.util.Collections;
 import java.util.Random;
 
 @RestController
@@ -59,12 +48,15 @@ public class TestController {
         return "hello";
     }
 
-
+    @GetMapping("/start")
+    public String startPAge2() {
+        return "hello2222";
+    }
 
     @GetMapping("/sender")
     public ResponseEntity senderGet(@PathParam("email") String email,
                                     @PathParam("email") String code) {
-        producerService.sendDataForEmail(email,code);
+        producerService.sendDataForEmail(email, code);
         return ResponseEntity.ok("1");
     }
 
@@ -78,7 +70,7 @@ public class TestController {
         return account;
     }
 
-    private String generateCode(){
+    private String generateCode() {
         StringBuilder builder = new StringBuilder("");
         for (int i = 0; i < 4; i++) {
             builder.append(new Random().nextInt(10));

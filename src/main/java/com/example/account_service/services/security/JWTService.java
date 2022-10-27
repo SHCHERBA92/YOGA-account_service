@@ -2,6 +2,7 @@ package com.example.account_service.services.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.security.AccountDetails;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,7 @@ public class JWTService {
     @Value("${jwt.secret}")
     private String SECRET;
 
-    public String createJwtToken(AccountDetails userDetails){
+    public String createJwtToken(AccountDetails userDetails) {
 
         Account account = userDetails.getAccount();
 
@@ -35,7 +36,7 @@ public class JWTService {
                 .sign(Algorithm.HMAC256(SECRET));
     }
 
-    public String getAccountFromToken(String token){
+    public String getAccountFromToken(String token) {
         var verification = JWT.require(Algorithm.HMAC256(SECRET))
                 .withSubject("Account")
                 .withIssuer(ISSUER).build();
@@ -43,11 +44,15 @@ public class JWTService {
         return userName;
     }
 
-    public boolean checkDateFromToken(String token){
+    public boolean checkDateFromToken(String token) {
         var verification = JWT.require(Algorithm.HMAC256(SECRET))
                 .withSubject("Account")
                 .withIssuer(ISSUER).build();
-        var expireDate = verification.verify(token).getExpiresAt();
-        return expireDate.after(new Date());
+        try {
+            var expireDate = verification.verify(token).getExpiresAt();
+            return expireDate.after(new Date());
+        } catch (TokenExpiredException tokenExpiredException) {
+            return false;
+        }
     }
 }

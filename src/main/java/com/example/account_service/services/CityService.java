@@ -13,7 +13,7 @@ public class CityService {
         this.cityRepository = cityRepository;
     }
 
-    public City getCityByName(CityName cityName){
+    public City getCityByName(CityName cityName) {
         return cityRepository.findByCityName(cityName).orElse(new City(cityName));
     }
 }

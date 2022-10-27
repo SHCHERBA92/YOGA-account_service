@@ -21,7 +21,7 @@ public class AccountService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addNewAccount(String name, String password, Authorities authorities){
+    public void addNewAccount(String name, String password, Authorities authorities) {
         Account account = new Account();
         account.setEmail(name);
         account.setPassword(passwordEncoder.encode(password));
@@ -30,8 +30,8 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-//    @Transactional(propagation = Propagation.MANDATORY)
-    public Account addNewAccountMaster(Account account){
+    //    @Transactional(propagation = Propagation.MANDATORY)
+    public Account addNewAccountMaster(Account account) {
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setAuthorities(Authorities.ROLE_MASTER);
         return accountRepository.save(account);
