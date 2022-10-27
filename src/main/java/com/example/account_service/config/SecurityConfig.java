@@ -34,9 +34,9 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */{
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
          return httpSecurity
                  .csrf().disable()
-                 .authorizeRequests().antMatchers(HttpMethod.POST,"/addMaster", "/addParticipant", "/sender").permitAll()
+                 .authorizeRequests().antMatchers(HttpMethod.POST,"/master/addMaster", "/participant/addParticipant", "/sender").permitAll()
                  .and()
-                 .authorizeRequests().antMatchers(HttpMethod.GET,"/addMaster", "/addParticipant", "/sender").permitAll()
+                 .authorizeRequests().antMatchers(HttpMethod.GET,"/master/addMaster", "/participant/addParticipant", "/sender").permitAll()
                  .anyRequest().authenticated()
                  .and()
                  .addFilterBefore(beginnerJWTFilter, UsernamePasswordAuthenticationFilter.class)

@@ -37,11 +37,11 @@ public class BeginnerJWTFilter extends OncePerRequestFilter {
                 .filter(cookie -> "ACCESS-TOKEN".equals(cookie.getName()))
                 .collect(Collectors.toList());
 
-        if (authorizationHeaders.size() > 0){
+        if (authorizationHeaders.size() > 0) {
             var authorizationHeader = authorizationHeaders.get(0);
-            if (!authorizationHeader.getValue().isBlank()){
+            if (!authorizationHeader.getValue().isBlank()) {
                 var token = authorizationHeader.getValue();
-                if (jwtService.checkDateFromToken(token)){
+                if (jwtService.checkDateFromToken(token)) {
                     var userNAme = jwtService.getAccountFromToken(token);
                     var account = accountDetailsService.loadUserByUsername(userNAme);
                     UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =

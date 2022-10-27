@@ -33,5 +33,7 @@ public class City {
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<District> districts;
 
-
+    public City(CityName cityName) {
+        this.cityName = cityName;
+    }
 }

@@ -2,16 +2,19 @@ package com.example.account_service.controllers;
 
 import com.example.account_service.dto.ParticipantDTO;
 import com.example.account_service.enumeration.Authorities;
+import com.example.account_service.enumeration.DistrictName;
 import com.example.account_service.models.masters.City;
 import com.example.account_service.models.masters.District;
+import com.example.account_service.models.masters.Master;
 import com.example.account_service.models.masters.Participant;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.services.AccountService;
+import com.example.account_service.services.CityService;
 import com.example.account_service.services.DistrictService;
-import com.example.account_service.services.MasterService;
 import com.example.account_service.services.ParticipantService;
-import com.example.account_service.services.mq.ProducerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Isolation;
@@ -22,8 +25,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
 import java.util.Collections;
-import java.util.Random;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/participant")
@@ -34,26 +39,40 @@ public class ParticipantController {
     private final ParticipantService participantService;
     private final PasswordEncoder passwordEncoder;
     private final DistrictService districtService;
+    private final CityService cityService;
 
-    public ParticipantController(AccountService accountService, ModelMapper modelMapper, ParticipantService participantService, PasswordEncoder passwordEncoder, DistrictService districtService) {
+    public ParticipantController(AccountService accountService,
+                                 ModelMapper modelMapper,
+                                 ParticipantService participantService,
+                                 PasswordEncoder passwordEncoder,
+                                 DistrictService districtService,
+                                 CityService cityService) {
         this.accountService = accountService;
         this.modelMapper = modelMapper;
         this.participantService = participantService;
         this.passwordEncoder = passwordEncoder;
         this.districtService = districtService;
+        this.cityService = cityService;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
     @PostMapping("/addParticipant")
     public ResponseEntity addParticipant(@RequestBody ParticipantDTO participantDTO) {
+
         var currentParticipant = modelMapper.map(participantDTO, Participant.class);
-        var currentAccount = this.createAccountFor(modelMapper.map(participantDTO, Account.class), Authorities.ROLE_USER);
+        var currentAccount = accountService.createAccountFor(modelMapper.map(participantDTO, Account.class),
+                Authorities.ROLE_MASTER);
 
-        var currentCity = modelMapper.map(participantDTO, City.class);
-        var currentDistrict = modelMapper.map(participantDTO, District.class);
+        var currentCity = cityService.getCityByName(modelMapper.map(participantDTO, City.class).getCityName());
 
-        currentCity.setDistricts(Collections.singletonList(currentDistrict));
-        currentDistrict.setCity(currentCity);
+        List<DistrictName> currentDistrictNames = modelMapper.map(participantDTO.getDistrictNames(), new TypeToken<>(){}.getType());
+        var currentDistricts = currentDistrictNames.stream()
+                //TODO: проверять районы из БД - если их там нет, то добалять
+                .map(districtName -> new District(districtName))
+                .collect(Collectors.toList());
+
+        currentCity.setDistricts(currentDistricts);
+        currentDistricts.stream().forEach(district -> district.setCity(currentCity));
 
         currentParticipant.setAccount(currentAccount);
         currentAccount.setParticipant(currentParticipant);
@@ -61,27 +80,11 @@ public class ParticipantController {
         currentParticipant.setCity(currentCity);
         currentCity.setParticipant(Collections.singletonList(currentParticipant));
 
-        //TODO: Проверять наличие городов в базе и если города нет, то добавлять его, если есть, то приконечтивать к найденному
         participantService.addNewParticipant(currentParticipant);
-        districtService.addDistrict(currentDistrict);
+        districtService.addAllDistrict(currentDistricts);
 
-        return ResponseEntity.ok("ok");
-    }
-
-    private Account createAccountFor(Account account, Authorities authorities) {
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
-        account.setAuthorities(authorities);
-        //TODO: потом поставить false и менять только тогда, когда пользователь введёт секретное слово
-        account.setEnable(true);
-        account.setCode(this.generateCode());
-        return account;
-    }
-
-    private String generateCode(){
-        StringBuilder builder = new StringBuilder("");
-        for (int i = 0; i < 4; i++) {
-            builder.append(new Random().nextInt(10));
-        }
-        return builder.toString();
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(URI.create("http://localhost:8081/sender?email="+currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
+                .build();
     }
 }

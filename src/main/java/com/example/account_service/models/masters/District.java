@@ -24,4 +24,8 @@ public class District {
     @ManyToOne (fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     private City city;
+
+    public District(DistrictName districtName) {
+        this.districtName = districtName;
+    }
 }

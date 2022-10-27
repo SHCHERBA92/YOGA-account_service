@@ -4,6 +4,8 @@ import com.example.account_service.enumeration.CityName;
 import com.example.account_service.enumeration.DistrictName;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ParticipantDTO {
     private String name;
@@ -15,5 +17,5 @@ public class ParticipantDTO {
     private String password;
 
     private CityName cityName;
-    private DistrictName districtName;
+    private List<DistrictName> districtNames;
 }

@@ -36,21 +36,21 @@ public class AfterJWTFilter extends OncePerRequestFilter {
                 .filter(cookie -> "ACCESS-TOKEN".equals(cookie.getName()))
                 .collect(Collectors.toList());
 
-        if (authorizationHeaders.size()==0){
-            if (SecurityContextHolder.getContext().getAuthentication() != null){
+        if (authorizationHeaders.size() == 0) {
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
                 setCookieToken(response);
             }
-        }else {
+        } else {
             var authorizationHeader = authorizationHeaders.get(0);
-            if (authorizationHeader.getValue().isBlank() || !jwtService.checkDateFromToken(authorizationHeader.getValue())){
+            if (authorizationHeader.getValue().isBlank() || !jwtService.checkDateFromToken(authorizationHeader.getValue())) {
                 setCookieToken(response);
             }
         }
         filterChain.doFilter(request, response);
     }
 
-    private void setCookieToken(HttpServletResponse response){
-        var account = (AccountDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    private void setCookieToken(HttpServletResponse response) {
+        var account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         var token = jwtService.createJwtToken(account);
         response.setHeader("Authorization", "Barer " + token);
         response.addCookie(new Cookie("ACCESS-TOKEN", token));

@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AccountServiceApplication {
 
+    // TODO: Добавить эксепшены
+    // TODO : Добавить Swagger
     public static void main(String[] args) {
         SpringApplication.run(AccountServiceApplication.class, args);
     }

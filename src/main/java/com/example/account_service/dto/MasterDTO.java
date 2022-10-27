@@ -5,6 +5,7 @@ import com.example.account_service.enumeration.DistrictName;
 import lombok.Data;
 
 import javax.persistence.Lob;
+import java.util.List;
 
 @Data
 public class MasterDTO {
@@ -20,5 +21,5 @@ public class MasterDTO {
     private String password;
 
     private CityName cityName;
-    private DistrictName districtName;
+    private List<DistrictName> districtNames;
 }

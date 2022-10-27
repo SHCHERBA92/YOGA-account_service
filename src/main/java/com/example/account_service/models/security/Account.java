@@ -29,11 +29,11 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private Authorities authorities;
 
-//    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    //    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     @OneToOne(mappedBy = "account")
     private Master master;
 
-//    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    //    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     @OneToOne(mappedBy = "account")
     private Participant participant;
 }
