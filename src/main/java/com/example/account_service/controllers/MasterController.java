@@ -10,7 +10,9 @@ import com.example.account_service.models.security.Account;
 import com.example.account_service.services.*;
 import com.example.account_service.services.mq.ProducerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
@@ -32,7 +34,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/master")
-@ApiResponse
+//@ApiResponse
+@Tag(name = "Master API", description = "Для работы с сущностью master(тренер)")
 public class MasterController {
 
     private final AccountService accountService;
@@ -65,8 +68,10 @@ public class MasterController {
         this.objectMapper = objectMapper;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
     @PostMapping("/addMaster")
+    @Operation(summary = "Добавить мастера", description = "Добавляет нового пользователя с Авторизацией MASTER и создаёт аккаунт для Master")
     public ResponseEntity addMaster(@RequestBody MasterDTO masterDTO) {
         var currentMaster = modelMapper.map(masterDTO, Master.class);
         var currentAccount = accountService.createAccountFor(modelMapper.map(masterDTO, Account.class),

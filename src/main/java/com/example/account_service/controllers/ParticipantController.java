@@ -12,6 +12,8 @@ import com.example.account_service.services.AccountService;
 import com.example.account_service.services.CityService;
 import com.example.account_service.services.DistrictService;
 import com.example.account_service.services.ParticipantService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
@@ -32,6 +34,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/participant")
+@Tag(name = "Participant API", description = "Для работы с сущностью participant(пользователь)")
 public class ParticipantController {
 
     private final AccountService accountService;
@@ -57,6 +60,7 @@ public class ParticipantController {
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
     @PostMapping("/addParticipant")
+    @Operation(summary = "Добавить пользователя", description = "Добавляет нового пользователя с Авторизацией User и создаёт аккаунт для User")
     public ResponseEntity addParticipant(@RequestBody ParticipantDTO participantDTO) {
 
         var currentParticipant = modelMapper.map(participantDTO, Participant.class);

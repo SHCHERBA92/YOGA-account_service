@@ -13,6 +13,7 @@ import com.example.account_service.services.DistrictService;
 import com.example.account_service.services.MasterService;
 import com.example.account_service.services.ParticipantService;
 import com.example.account_service.services.mq.ProducerService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,7 @@ import javax.websocket.server.PathParam;
 import java.util.Random;
 
 @RestController
+@Tag(name = "Тестовый контроллер", description = "Пока что это тестовое API для внутренних нужд")
 public class TestController {
 
     private final AccountService accountService;
