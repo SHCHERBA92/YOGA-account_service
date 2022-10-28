@@ -6,8 +6,9 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.security.AccountDetails;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import static org.springframework.util.StringUtils.hasLength;
+import static org.springframework.util.StringUtils.hasText;
 
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -45,6 +46,7 @@ public class JWTService {
     }
 
     public boolean checkDateFromToken(String token) {
+        if (!hasLength(token) && !hasText(token)) return false;
         var verification = JWT.require(Algorithm.HMAC256(SECRET))
                 .withSubject("Account")
                 .withIssuer(ISSUER).build();

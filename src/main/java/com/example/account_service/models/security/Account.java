@@ -30,7 +30,7 @@ public class Account {
     private Authorities authorities;
 
     //    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    @OneToOne(mappedBy = "account")
+    @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     private Master master;
 
     //    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)

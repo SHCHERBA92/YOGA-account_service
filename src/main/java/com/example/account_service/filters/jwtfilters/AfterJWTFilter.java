@@ -1,12 +1,10 @@
 package com.example.account_service.filters.jwtfilters;
 
 
-import com.example.account_service.models.security.Account;
 import com.example.account_service.security.AccountDetails;
 import com.example.account_service.services.security.AccountDetailsService;
 import com.example.account_service.services.security.JWTService;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 

@@ -1,10 +1,9 @@
 package com.example.account_service.services;
 
+import com.example.account_service.exceptions.simple_exception.EntityException;
 import com.example.account_service.models.masters.Master;
 import com.example.account_service.repositoryes.MasterRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MasterService {
@@ -16,6 +15,7 @@ public class MasterService {
 
     //    @Transactional(propagation = Propagation.MANDATORY)
     public void addNewMaster(Master master) {
+        if (master==null) throw new EntityException("Отсутствует тренер", Master.class);
         masterRepository.save(master);
     }
 }

@@ -1,12 +1,15 @@
 package com.example.account_service.services.mq;
 
 import com.example.account_service.dto.MessageForMail;
+
+import com.example.account_service.exceptions.simple_exception.QueueException;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
+import static org.springframework.util.StringUtils.hasLength;
+import static org.springframework.util.StringUtils.hasText;
 
 import java.nio.charset.StandardCharsets;
 
@@ -24,11 +27,17 @@ public class ProducerService {
     }
 
     public void sendDataForEmail(String email, String code) {
-        template.setExchange(directExchange.getName());
-        MessageForMail messageForMail = new MessageForMail();
-        messageForMail.setEmail(email);
-        messageForMail.setKod(code);
-        Message message = new Message(messageForMail.toString().getBytes(StandardCharsets.UTF_8));
-        template.send("emailKey", message);
+        if ((hasLength(email) && hasLength(code) )&&(hasText(email) && hasText(code))){
+            if (code.length()!=4) throw new QueueException("Не валидное кодовое слово!");
+            template.setExchange(directExchange.getName());
+            MessageForMail messageForMail = new MessageForMail();
+            messageForMail.setEmail(email);
+            messageForMail.setKod(code);
+            Message message = new Message(messageForMail.toString().getBytes(StandardCharsets.UTF_8));
+            template.send("emailKey", message);
+        }else {
+            throw new QueueException("Пустые email или кодовое слово у пользоваетля.", email);
+        }
+
     }
 }

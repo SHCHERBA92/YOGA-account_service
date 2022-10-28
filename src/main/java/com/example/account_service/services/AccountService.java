@@ -1,13 +1,13 @@
 package com.example.account_service.services;
 
 import com.example.account_service.enumeration.Authorities;
-import com.example.account_service.models.masters.Master;
+import com.example.account_service.exceptions.simple_exception.NewAccountException;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.repositoryes.AccountRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+import static org.springframework.util.StringUtils.hasLength;
+import static org.springframework.util.StringUtils.hasText;
 
 import java.util.Random;
 
@@ -22,6 +22,9 @@ public class AccountService {
     }
 
     public void addNewAccount(String name, String password, Authorities authorities) {
+        if (!hasLength(name) && !hasLength(password)) throw new NewAccountException("Отсутствуют или пустые имя/пароль");
+        if (password.length() <3 ) throw new NewAccountException("Пароль меньше 3 символо");    // TODO: подправить на 6 символов.
+        if (authorities==null) throw new NewAccountException("Для аккаунта " + name + " не определа роль!" );
         Account account = new Account();
         account.setEmail(name);
         account.setPassword(passwordEncoder.encode(password));
@@ -30,14 +33,8 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    //    @Transactional(propagation = Propagation.MANDATORY)
-    public Account addNewAccountMaster(Account account) {
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
-        account.setAuthorities(Authorities.ROLE_MASTER);
-        return accountRepository.save(account);
-    }
-
     public Account createAccountFor(Account account, Authorities authorities) {
+        if (account == null || authorities == null) throw new NewAccountException("Отустствует аккаунт");
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setAuthorities(authorities);
         //TODO: потом поставить false и менять только тогда, когда пользователь введёт секретное слово

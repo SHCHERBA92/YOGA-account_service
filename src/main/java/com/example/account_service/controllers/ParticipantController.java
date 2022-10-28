@@ -61,7 +61,7 @@ public class ParticipantController {
 
         var currentParticipant = modelMapper.map(participantDTO, Participant.class);
         var currentAccount = accountService.createAccountFor(modelMapper.map(participantDTO, Account.class),
-                Authorities.ROLE_MASTER);
+                Authorities.ROLE_USER);
 
         var currentCity = cityService.getCityByName(modelMapper.map(participantDTO, City.class).getCityName());
 
