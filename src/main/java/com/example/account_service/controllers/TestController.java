@@ -1,24 +1,23 @@
 package com.example.account_service.controllers;
 
-import com.example.account_service.dto.MasterDTO;
-import com.example.account_service.dto.ParticipantDTO;
-import com.example.account_service.enumeration.Authorities;
-import com.example.account_service.models.masters.City;
-import com.example.account_service.models.masters.District;
-import com.example.account_service.models.masters.Master;
-import com.example.account_service.models.masters.Participant;
-import com.example.account_service.models.security.Account;
+import com.example.account_service.exceptions.simple_exception.NewAccountException;
 import com.example.account_service.services.AccountService;
 import com.example.account_service.services.DistrictService;
 import com.example.account_service.services.MasterService;
 import com.example.account_service.services.ParticipantService;
 import com.example.account_service.services.mq.ProducerService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.Random;
@@ -34,8 +33,9 @@ public class TestController {
     private final PasswordEncoder passwordEncoder;
     private final DistrictService districtService;
     private final ProducerService producerService;
+    private final ObjectMapper objectMapper;
 
-    public TestController(AccountService accountService, ModelMapper modelMapper, MasterService masterService, ParticipantService participantService, PasswordEncoder passwordEncoder, DistrictService districtService, ProducerService producerService) {
+    public TestController(AccountService accountService, ModelMapper modelMapper, MasterService masterService, ParticipantService participantService, PasswordEncoder passwordEncoder, DistrictService districtService, ProducerService producerService, ObjectMapper objectMapper) {
         this.accountService = accountService;
         this.modelMapper = modelMapper;
         this.masterService = masterService;
@@ -43,6 +43,7 @@ public class TestController {
         this.passwordEncoder = passwordEncoder;
         this.districtService = districtService;
         this.producerService = producerService;
+        this.objectMapper = objectMapper;
     }
 
     @GetMapping
@@ -59,24 +60,37 @@ public class TestController {
     public ResponseEntity senderGet(@PathParam("email") String email,
                                     @PathParam("email") String code) {
         producerService.sendDataForEmail(email, code);
-        return ResponseEntity.ok("1");
+        return ResponseEntity.ok("Message has be sender");
     }
 
-
-    private Account createAccountFor(Account account, Authorities authorities) {
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
-        account.setAuthorities(authorities);
-        //TODO: потом поставить false и менять только тогда, когда пользователь введёт секретное слово
-        account.setEnable(true);
-        account.setCode(this.generateCode());
-        return account;
+    @GetMapping("/check/code/{email}")
+    public ResponseEntity getCheckCode(@PathVariable String email) {
+        // Чисто для теста - в дальнейшем только на фронт будет передаваться ссылка, а с фронта уже пост запросом на бэк
+        System.out.println(email);
+        return ResponseEntity.ok("11");
     }
 
-    private String generateCode() {
-        StringBuilder builder = new StringBuilder("");
-        for (int i = 0; i < 4; i++) {
-            builder.append(new Random().nextInt(10));
+    @Operation(summary = "Авторизовать аккаунт", description = "Перевод аккаунт из неактивного состояния в активное")
+    @PostMapping("/check/code/{email}")
+    public ResponseEntity postCheckCode(@PathVariable String email, @RequestBody String code) {
+        try {
+            var account = accountService.getAccountByEmail(email);
+
+            var codeAsText = objectMapper.readTree(code).get("code").asText();
+            if (account.getCode().equals(codeAsText)) {
+                account.setEnable(true);
+                accountService.updateAccount(account);
+                SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(account, account.getPassword()));
+                return ResponseEntity.status(HttpStatus.OK).body("Регистрация закончена успешно!");
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Введённый код не подходит, попробуйте снова или запросите новй код");
+            }
+        } catch (RuntimeException runtimeException) {
+            throw new NewAccountException("Не получается получить аккаунт. На странице логина нажмите \" Авторизоваться по коду \" ");
+        } catch (JsonMappingException e) {
+            throw new NewAccountException("Не получается получить аккаунт. На странице логина нажмите \" Авторизоваться по коду \" ");
+        } catch (JsonProcessingException e) {
+            throw new NewAccountException("Не получается получить аккаунт. На странице логина нажмите \" Авторизоваться по коду \" ");
         }
-        return builder.toString();
     }
 }

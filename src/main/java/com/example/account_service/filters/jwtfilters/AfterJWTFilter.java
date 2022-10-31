@@ -46,7 +46,6 @@ public class AfterJWTFilter extends OncePerRequestFilter {
                 }
             }
         }
-
         filterChain.doFilter(request, response);
     }
 

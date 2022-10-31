@@ -6,6 +6,8 @@ import com.example.account_service.models.security.Account;
 import com.example.account_service.repositoryes.AccountRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import static org.springframework.util.StringUtils.hasLength;
 import static org.springframework.util.StringUtils.hasText;
 
@@ -33,12 +35,22 @@ public class AccountService {
         accountRepository.save(account);
     }
 
+
+    @Transactional
+    public Account getAccountByEmail(String email){
+        return accountRepository.findAccountByEmail(email).orElseThrow(() -> new NewAccountException("Такой пользователь не найден!"));
+    }
+
+    public Account updateAccount(Account account){
+        return accountRepository.save(account);
+    }
+
     public Account createAccountFor(Account account, Authorities authorities) {
         if (account == null || authorities == null) throw new NewAccountException("Отустствует аккаунт");
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setAuthorities(authorities);
         //TODO: потом поставить false и менять только тогда, когда пользователь введёт секретное слово
-        account.setEnable(true);
+        account.setEnable(false);
         account.setCode(this.generateCode());
         return account;
     }

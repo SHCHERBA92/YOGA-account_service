@@ -41,7 +41,8 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/swagger-ui.html",
                         "/start",
                         "/swagger.html",
-                        "/v1-api-YOGA-account").permitAll()
+                        "/v1-api-YOGA-account",
+                        "/check/code/*").permitAll()
                 .and()
                 .authorizeRequests().antMatchers(HttpMethod.GET, "/master/addMaster",
                         "/participant/addParticipant",
@@ -50,7 +51,9 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/swagger-ui.html",
                         "/start",
                         "/swagger.html",
-                        "/v1-api-YOGA-account").permitAll()
+                        "/v1-api-YOGA-account",
+                        "/check/code",
+                        "/check/code/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(beginnerJWTFilter, UsernamePasswordAuthenticationFilter.class)

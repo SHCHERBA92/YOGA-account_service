@@ -18,6 +18,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     Optional<Account> gfAccount(String name);
 
 
+    Optional<Account> findAccountByEmail(String email);
+
 //    select * from account left join
 //            (SELECT * from master  left join city c on master.city_id = c.id) m
 //    on account.id = m.account_id
