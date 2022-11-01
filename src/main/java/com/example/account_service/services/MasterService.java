@@ -18,4 +18,8 @@ public class MasterService {
         if (master==null) throw new EntityException("Отсутствует тренер", Master.class);
         masterRepository.save(master);
     }
+
+    public Master getMasterByID(Long id){
+        return masterRepository.findById(id).orElseThrow(() -> new EntityException("НЕ удалось найти такого тренера.", Master.class));
+    }
 }

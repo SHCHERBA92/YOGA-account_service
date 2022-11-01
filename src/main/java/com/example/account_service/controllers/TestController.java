@@ -27,21 +27,11 @@ import java.util.Random;
 public class TestController {
 
     private final AccountService accountService;
-    private final ModelMapper modelMapper;
-    private final MasterService masterService;
-    private final ParticipantService participantService;
-    private final PasswordEncoder passwordEncoder;
-    private final DistrictService districtService;
     private final ProducerService producerService;
     private final ObjectMapper objectMapper;
 
-    public TestController(AccountService accountService, ModelMapper modelMapper, MasterService masterService, ParticipantService participantService, PasswordEncoder passwordEncoder, DistrictService districtService, ProducerService producerService, ObjectMapper objectMapper) {
+    public TestController(AccountService accountService, ProducerService producerService, ObjectMapper objectMapper) {
         this.accountService = accountService;
-        this.modelMapper = modelMapper;
-        this.masterService = masterService;
-        this.participantService = participantService;
-        this.passwordEncoder = passwordEncoder;
-        this.districtService = districtService;
         this.producerService = producerService;
         this.objectMapper = objectMapper;
     }

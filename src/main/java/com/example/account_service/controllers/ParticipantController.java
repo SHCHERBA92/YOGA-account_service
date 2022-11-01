@@ -5,7 +5,6 @@ import com.example.account_service.enumeration.Authorities;
 import com.example.account_service.enumeration.DistrictName;
 import com.example.account_service.models.masters.City;
 import com.example.account_service.models.masters.District;
-import com.example.account_service.models.masters.Master;
 import com.example.account_service.models.masters.Participant;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.services.AccountService;
@@ -22,10 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.Collections;
@@ -91,5 +87,11 @@ public class ParticipantController {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(URI.create("http://localhost:8081/sender?email=" + currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
                 .build();
+    }
+
+
+    @GetMapping("/info/{id}")
+    public Participant infoParticipant(@PathVariable Long id){
+        return participantService.getParticipantById(id);
     }
 }

@@ -17,4 +17,8 @@ public class ParticipantService {
         if (participant==null) throw new EntityException("Отсутствует пользователь", Participant.class);
         participantRepository.save(participant);
     }
+
+    public Participant getParticipantById(Long id){
+        return participantRepository.findById(id).orElseThrow(() -> new EntityException("НЕ удалось найти такого пользователя.", Participant.class));
+    }
 }
