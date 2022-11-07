@@ -23,7 +23,7 @@ public class AccountService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addNewAccount(String name, String password, Authorities authorities) {
+    public boolean addNewAccount(String name, String password, Authorities authorities) {
         if (!hasLength(name) && !hasLength(password)) throw new NewAccountException("Отсутствуют или пустые имя/пароль");
         if (password.length() <3 ) throw new NewAccountException("Пароль меньше 3 символо");    // TODO: подправить на 6 символов.
         if (authorities==null) throw new NewAccountException("Для аккаунта " + name + " не определа роль!" );
@@ -33,6 +33,7 @@ public class AccountService {
         account.setAuthorities(authorities);
 
         accountRepository.save(account);
+        return true;
     }
 
 
@@ -49,7 +50,6 @@ public class AccountService {
         if (account == null || authorities == null) throw new NewAccountException("Отустствует аккаунт");
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setAuthorities(authorities);
-        //TODO: потом поставить false и менять только тогда, когда пользователь введёт секретное слово
         account.setEnable(false);
         account.setCode(this.generateCode());
         return account;

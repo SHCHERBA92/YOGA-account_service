@@ -11,7 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         description = "Information about Users and Account"))
 public class AccountServiceApplication {
 
-    // TODO : Добавить Swagger
+    // TODO: Добавить Swagger
+    // TODO: Добавить тестирование
+    // TODO: Добавить Кэширование через Redis
     public static void main(String[] args) {
         SpringApplication.run(AccountServiceApplication.class, args);
     }
