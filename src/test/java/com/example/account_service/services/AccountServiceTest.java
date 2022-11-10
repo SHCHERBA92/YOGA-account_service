@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-
 class AccountServiceTest {
 
     @InjectMocks
@@ -33,7 +32,7 @@ class AccountServiceTest {
 
     @Test
     @DisplayName(value = "Тестирование на добавления нового аккаунта")
-    void addAccount(){
+    void addAccount() {
         Account account = mock(Account.class);
         Account currentAccount = new Account();
 

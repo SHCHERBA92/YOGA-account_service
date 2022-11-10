@@ -3,6 +3,7 @@ package com.example.account_service.controllers;
 import com.example.account_service.dto.ParticipantDTO;
 import com.example.account_service.enumeration.Authorities;
 import com.example.account_service.enumeration.DistrictName;
+import com.example.account_service.enumeration.TypeRegistration;
 import com.example.account_service.models.masters.City;
 import com.example.account_service.models.masters.District;
 import com.example.account_service.models.masters.Participant;
@@ -55,9 +56,10 @@ public class ParticipantController {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-    @PostMapping("/addParticipant")
+    @PostMapping("/addParticipant/{typeRegistration}")
     @Operation(summary = "Добавить пользователя", description = "Добавляет нового пользователя с Авторизацией User и создаёт аккаунт для User")
-    public ResponseEntity addParticipant(@RequestBody ParticipantDTO participantDTO) {
+    public ResponseEntity addParticipant(@RequestBody ParticipantDTO participantDTO,
+                                         @PathVariable("typeRegistration") TypeRegistration typeRegistration) {
 
         var currentParticipant = modelMapper.map(participantDTO, Participant.class);
         var currentAccount = accountService.createAccountFor(modelMapper.map(participantDTO, Account.class),
@@ -91,7 +93,7 @@ public class ParticipantController {
 
 
     @GetMapping("/info/{id}")
-    public Participant infoParticipant(@PathVariable Long id){
+    public Participant infoParticipant(@PathVariable Long id) {
         return participantService.getParticipantById(id);
     }
 }

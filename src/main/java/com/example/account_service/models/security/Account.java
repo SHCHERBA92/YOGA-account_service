@@ -22,6 +22,8 @@ public class Account {
     @Column(name = "email")
     private String email;
     private String password;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     private boolean isEnable;
     private String code;

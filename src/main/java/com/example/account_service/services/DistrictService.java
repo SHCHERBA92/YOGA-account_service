@@ -15,12 +15,12 @@ public class DistrictService {
         this.districtRepository = districtRepository;
     }
 
-    public void addDistrict(District district){
-        if (district==null) throw new EntityException("Отсутствует район", District.class);
+    public void addDistrict(District district) {
+        if (district == null) throw new EntityException("Отсутствует район", District.class);
         districtRepository.save(district);
     }
 
-    public void addAllDistrict(List<District> districtList){
+    public void addAllDistrict(List<District> districtList) {
         if (districtList.isEmpty() || districtList == null) throw new EntityException("Отсутствуют район");
         districtRepository.saveAll(districtList);
     }

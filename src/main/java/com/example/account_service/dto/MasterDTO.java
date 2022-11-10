@@ -2,6 +2,7 @@ package com.example.account_service.dto;
 
 import com.example.account_service.enumeration.CityName;
 import com.example.account_service.enumeration.DistrictName;
+import com.example.account_service.enumeration.StatusMessage;
 import lombok.Data;
 
 import javax.persistence.Lob;
@@ -19,6 +20,7 @@ public class MasterDTO {
 
     private String email;
     private String password;
+    private String phoneNumber;
 
     private CityName cityName;
     private List<DistrictName> districtNames;

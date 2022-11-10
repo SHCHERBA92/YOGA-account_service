@@ -34,7 +34,7 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf().disable()
-                .authorizeRequests().antMatchers(HttpMethod.POST, "/master/addMaster",
+                .authorizeRequests().antMatchers(HttpMethod.POST, "/master/addMaster/**",
                         "/participant/addParticipant",
                         "/sender",
                         "/swagger-ui/*",
@@ -44,9 +44,10 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/v1-api-YOGA-account",
                         "/check/code/*").permitAll()
                 .and()
-                .authorizeRequests().antMatchers(HttpMethod.GET, "/master/addMaster",
+                .authorizeRequests().antMatchers(HttpMethod.GET, "/master/addMaster/**",
                         "/participant/addParticipant",
-                        "/sender",
+                        "/sender-mail",
+                        "/sender-sms",
                         "/swagger-ui/*",
                         "/swagger-ui.html",
                         "/start",
