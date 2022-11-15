@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Setter
@@ -29,18 +28,5 @@ public class District implements Serializable {
 
     public District(DistrictName districtName) {
         this.districtName = districtName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        District district = (District) o;
-        return districtName == district.districtName && Objects.equals(city, district.city);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(districtName, city);
     }
 }

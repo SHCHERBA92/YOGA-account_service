@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -27,14 +29,15 @@ public class City implements Serializable {
 
     //    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     @OneToMany(mappedBy = "city")
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<Master> master;
 
     @OneToMany(mappedBy = "city")
     private List<Participant> participant;
 
     @OneToMany(mappedBy = "city")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<District> districts;
 
     public City(CityName cityName) {

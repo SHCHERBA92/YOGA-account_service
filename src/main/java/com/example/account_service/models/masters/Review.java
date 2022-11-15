@@ -9,12 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @Entity
-public class Review {
+public class Review implements Serializable {
     @Id
     private Long id;
 

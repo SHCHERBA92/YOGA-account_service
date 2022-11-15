@@ -37,16 +37,15 @@ public class Master implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     private Rating rating;
 
-    @OneToMany(mappedBy = "master")
+    @OneToMany(mappedBy = "master", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     List<Review> reviews;
 
     @ManyToOne(cascade = CascadeType.ALL)
 //    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
-    @JsonBackReference
+//    @JsonBackReference
     private City city;
 
-    //    @OneToOne
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     @JsonIgnore

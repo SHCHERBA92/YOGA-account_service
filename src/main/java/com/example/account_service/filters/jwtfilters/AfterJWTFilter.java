@@ -2,7 +2,6 @@ package com.example.account_service.filters.jwtfilters;
 
 
 import com.example.account_service.security.AccountDetails;
-import com.example.account_service.services.security.AccountDetailsService;
 import com.example.account_service.services.security.JWTService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -21,11 +20,9 @@ import java.util.stream.Collectors;
 public class AfterJWTFilter extends OncePerRequestFilter {
 
     private final JWTService jwtService;
-    private final AccountDetailsService accountDetailsService;
 
-    public AfterJWTFilter(JWTService jwtService, AccountDetailsService accountDetailsService) {
+    public AfterJWTFilter(JWTService jwtService) {
         this.jwtService = jwtService;
-        this.accountDetailsService = accountDetailsService;
     }
 
     @Override

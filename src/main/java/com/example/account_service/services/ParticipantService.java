@@ -14,11 +14,11 @@ public class ParticipantService {
     }
 
     public void addNewParticipant(Participant participant) {
-        if (participant==null) throw new EntityException("Отсутствует пользователь", Participant.class);
+        if (participant == null) throw new EntityException("Отсутствует пользователь", Participant.class);
         participantRepository.save(participant);
     }
 
-    public Participant getParticipantById(Long id){
+    public Participant getParticipantById(Long id) {
         return participantRepository.findById(id).orElseThrow(() -> new EntityException("НЕ удалось найти такого пользователя.", Participant.class));
     }
 }

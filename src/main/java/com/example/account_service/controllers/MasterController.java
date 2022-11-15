@@ -11,15 +11,12 @@ import com.example.account_service.models.masters.District;
 import com.example.account_service.models.masters.Master;
 import com.example.account_service.models.security.Account;
 import com.example.account_service.services.*;
-import com.example.account_service.services.mq.ProducerServiceEmail;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,31 +36,23 @@ public class MasterController {
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final MasterService masterService;
-    private final ParticipantService participantService;
-    private final PasswordEncoder passwordEncoder;
     private final DistrictService districtService;
-    private final ProducerServiceEmail producerService;
     private final CityService cityService;
-    private final ObjectMapper objectMapper;
 
     public MasterController(AccountService accountService,
                             ModelMapper modelMapper,
                             MasterService masterService,
-                            ParticipantService participantService,
-                            PasswordEncoder passwordEncoder,
                             DistrictService districtService,
-                            ProducerServiceEmail producerService,
-                            CityService cityService,
-                            ObjectMapper objectMapper) {
+                            CityService cityService
+    ) {
         this.accountService = accountService;
         this.modelMapper = modelMapper;
         this.masterService = masterService;
-        this.participantService = participantService;
-        this.passwordEncoder = passwordEncoder;
+
         this.districtService = districtService;
-        this.producerService = producerService;
+
         this.cityService = cityService;
-        this.objectMapper = objectMapper;
+
     }
 
 
@@ -96,7 +85,7 @@ public class MasterController {
         currentCity.setMaster(Collections.singletonList(currentMaster));
 
         masterService.addNewMaster(currentMaster);
-        districtService.addAllDistrict(currentDistricts);
+//        districtService.addAllDistrict(currentDistricts);
 
         if (typeRegistration.name().equals(TypeRegistration.EMAIL.name())) {
             return ResponseEntity.status(HttpStatus.FOUND)
@@ -109,22 +98,10 @@ public class MasterController {
         }
     }
 
-//    @Transactional(readOnly = true)
-//    @PostMapping("/masters")
-//    public List<Master> findAllMaster(@RequestBody MasterFilterDTO masterFilterDTO){
-//
-//        return masterService.getAllMasters(masterFilterDTO.getName(),
-//                masterFilterDTO.getNameOfCity(),
-//                masterFilterDTO.getRatingMax(),
-//                masterFilterDTO.getRatingMin(),
-//                masterFilterDTO.getPriceMax(),
-//                masterFilterDTO.getPriceMin(),
-//                masterFilterDTO.getOrderType());
-//    }
-
 
     @PostMapping("/masters")
-    public List<ResponseMasterDTO> findAllMaster(@RequestBody MasterFilterDTO masterFilterDTO){
+    @Transactional
+    public List<ResponseMasterDTO> findAllMaster(@RequestBody MasterFilterDTO masterFilterDTO) {
 
         var masters = masterService.getAllMasters(masterFilterDTO.getName(),
                 masterFilterDTO.getNameOfCity(),
@@ -137,7 +114,7 @@ public class MasterController {
                 .map(master -> {
                     var temp = modelMapper.map(master, ResponseMasterDTO.class);
                     temp.setDistrictNames(master.getCity().getDistricts().stream()
-                            .map(district -> district.getDistrictName())
+                            .map(District::getDistrictName)
                             .collect(Collectors.toList()));
                     return temp;
                 })

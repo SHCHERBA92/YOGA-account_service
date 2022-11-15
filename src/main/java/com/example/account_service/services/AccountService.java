@@ -24,9 +24,11 @@ public class AccountService {
     }
 
     public boolean addNewAccount(String name, String password, Authorities authorities) {
-        if (!hasLength(name) && !hasLength(password)) throw new NewAccountException("Отсутствуют или пустые имя/пароль");
-        if (password.length() <3 ) throw new NewAccountException("Пароль меньше 3 символо");    // TODO: подправить на 6 символов.
-        if (authorities==null) throw new NewAccountException("Для аккаунта " + name + " не определа роль!" );
+        if (!hasLength(name) && !hasLength(password))
+            throw new NewAccountException("Отсутствуют или пустые имя/пароль");
+        if (password.length() < 3)
+            throw new NewAccountException("Пароль меньше 3 символо");    // TODO: подправить на 6 символов.
+        if (authorities == null) throw new NewAccountException("Для аккаунта " + name + " не определа роль!");
         Account account = new Account();
         account.setEmail(name);
         account.setPassword(passwordEncoder.encode(password));
@@ -38,11 +40,11 @@ public class AccountService {
 
 
     @Transactional
-    public Account getAccountByEmail(String email){
+    public Account getAccountByEmail(String email) {
         return accountRepository.findAccountByEmail(email).orElseThrow(() -> new NewAccountException("Такой пользователь не найден!"));
     }
 
-    public Account updateAccount(Account account){
+    public Account updateAccount(Account account) {
         return accountRepository.save(account);
     }
 
