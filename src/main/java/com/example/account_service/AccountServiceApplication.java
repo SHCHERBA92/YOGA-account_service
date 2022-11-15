@@ -14,6 +14,7 @@ public class AccountServiceApplication {
     // TODO: Добавить Swagger
     // TODO: Добавить тестирование
     // TODO: Добавить Кэширование через Redis
+    // TODO: Добавить фильтр и если получится пагинацию
     public static void main(String[] args) {
         SpringApplication.run(AccountServiceApplication.class, args);
     }

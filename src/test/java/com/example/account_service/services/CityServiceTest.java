@@ -27,13 +27,13 @@ class CityServiceTest {
     @Test
     void getCityByName() {
         City city = new City(CityName.ROSTOV_ON_DON);
-        Mockito.when(cityRepository.findByCityName(CityName.ROSTOV_ON_DON)).thenReturn(Optional.of(city));
+        Mockito.when(cityRepository.findByNameOfCity(CityName.ROSTOV_ON_DON)).thenReturn(Optional.of(city));
 
         var actualCity = cityService.getCityByName(CityName.ROSTOV_ON_DON);
 
         Assertions.assertNotNull(actualCity, "actualCity is null");
         Assertions.assertEquals(city, actualCity);
-        Mockito.verify(cityRepository).findByCityName(CityName.ROSTOV_ON_DON);
+        Mockito.verify(cityRepository).findByNameOfCity(CityName.ROSTOV_ON_DON);
 
     }
 }

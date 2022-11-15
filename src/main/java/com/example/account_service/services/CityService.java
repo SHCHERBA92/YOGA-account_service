@@ -14,6 +14,6 @@ public class CityService {
     }
 
     public City getCityByName(CityName cityName) {
-        return cityRepository.findByCityName(cityName).orElse(new City(cityName));
+        return cityRepository.findByNameOfCity(cityName).orElse(new City(cityName));
     }
 }

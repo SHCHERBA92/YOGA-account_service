@@ -41,6 +41,7 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/swagger-ui.html",
                         "/start",
                         "/swagger.html",
+                        "/master/masters", // только для теста
                         "/v1-api-YOGA-account",
                         "/check/code/*").permitAll()
                 .and()
@@ -54,6 +55,7 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/swagger.html",
                         "/v1-api-YOGA-account",
                         "/check/code",
+
                         "/check/code/*").permitAll()
                 .anyRequest().authenticated()
                 .and()

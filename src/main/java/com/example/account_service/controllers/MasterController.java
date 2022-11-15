@@ -1,6 +1,8 @@
 package com.example.account_service.controllers;
 
 import com.example.account_service.dto.MasterDTO;
+import com.example.account_service.dto.MasterFilterDTO;
+import com.example.account_service.dto.ResponseMasterDTO;
 import com.example.account_service.enumeration.Authorities;
 import com.example.account_service.enumeration.DistrictName;
 import com.example.account_service.enumeration.TypeRegistration;
@@ -74,10 +76,11 @@ public class MasterController {
         var currentAccount = accountService.createAccountFor(modelMapper.map(masterDTO, Account.class),
                 Authorities.ROLE_MASTER);
 
-        var currentCity = cityService.getCityByName(modelMapper.map(masterDTO, City.class).getCityName());
+        var currentCity = cityService.getCityByName(modelMapper.map(masterDTO, City.class).getNameOfCity());
 
         List<DistrictName> currentDistrictNames = modelMapper.map(masterDTO.getDistrictNames(), new TypeToken<>() {
         }.getType());
+
         var currentDistricts = currentDistrictNames.stream()
                 //TODO: проверять районы из БД - если их там нет, то добалять
                 .map(districtName -> new District(districtName))
@@ -95,7 +98,7 @@ public class MasterController {
         masterService.addNewMaster(currentMaster);
         districtService.addAllDistrict(currentDistricts);
 
-        if (typeRegistration.name().equals(TypeRegistration.EMAIL)) {
+        if (typeRegistration.name().equals(TypeRegistration.EMAIL.name())) {
             return ResponseEntity.status(HttpStatus.FOUND)
                     .location(URI.create("http://localhost:8081/sender-mail?email=" + currentAccount.getEmail() + "&code=" + currentAccount.getCode()))
                     .build();
@@ -106,8 +109,47 @@ public class MasterController {
         }
     }
 
+//    @Transactional(readOnly = true)
+//    @PostMapping("/masters")
+//    public List<Master> findAllMaster(@RequestBody MasterFilterDTO masterFilterDTO){
+//
+//        return masterService.getAllMasters(masterFilterDTO.getName(),
+//                masterFilterDTO.getNameOfCity(),
+//                masterFilterDTO.getRatingMax(),
+//                masterFilterDTO.getRatingMin(),
+//                masterFilterDTO.getPriceMax(),
+//                masterFilterDTO.getPriceMin(),
+//                masterFilterDTO.getOrderType());
+//    }
+
+
+    @PostMapping("/masters")
+    public List<ResponseMasterDTO> findAllMaster(@RequestBody MasterFilterDTO masterFilterDTO){
+
+        var masters = masterService.getAllMasters(masterFilterDTO.getName(),
+                masterFilterDTO.getNameOfCity(),
+                masterFilterDTO.getRatingMax(),
+                masterFilterDTO.getRatingMin(),
+                masterFilterDTO.getPriceMax(),
+                masterFilterDTO.getPriceMin(),
+                masterFilterDTO.getOrderType());
+        var masterDTOS = masters.stream()
+                .map(master -> {
+                    var temp = modelMapper.map(master, ResponseMasterDTO.class);
+                    temp.setDistrictNames(master.getCity().getDistricts().stream()
+                            .map(district -> district.getDistrictName())
+                            .collect(Collectors.toList()));
+                    return temp;
+                })
+                .collect(Collectors.toList());
+        return masterDTOS;
+    }
+
+
     @GetMapping("/info/{id}")
     public Master infoMaster(@PathVariable Long id) {
         return masterService.getMasterByID(id);
     }
+
+
 }

@@ -2,15 +2,20 @@ package com.example.account_service.dto;
 
 import com.example.account_service.enumeration.CityName;
 import com.example.account_service.enumeration.DistrictName;
-import com.example.account_service.enumeration.StatusMessage;
-import lombok.Data;
+import com.example.account_service.enumeration.Rating;
+import com.example.account_service.models.masters.Review;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Lob;
 import java.util.List;
 
-@Data
-public class MasterDTO {
-
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResponseMasterDTO {
     private String name;
     private String lastName;
     private int age;
@@ -18,9 +23,8 @@ public class MasterDTO {
     private int experience;
     private int price;
 
-    private String email;
-    private String password;
-    private String phoneNumber;
+    private Rating rating;
+    private List<Review> reviews;
 
     private CityName nameOfCity;
     private List<DistrictName> districtNames;
