@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.util.StringUtils.hasLength;
-import static org.springframework.util.StringUtils.hasText;
 
 import java.util.Random;
 

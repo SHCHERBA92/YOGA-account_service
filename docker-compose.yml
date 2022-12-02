@@ -1,18 +1,79 @@
 version: '3'
 
 services:
-  postgres:
-    image: postgres:14
-    container_name: accountDB
-    ports:
-      - 5555:5432
-    environment:
-      - 'POSTGRES_USER=postgres'
-      - 'POSTGRES_PASSWORD=root'
-      - 'POSTGRES_DB=yoga_account_db'
+#  postgres:
+#    image: postgres:14
+#    container_name: accountDB
+#    ports:
+#      - 5555:5432
+#    environment:
+#      - 'POSTGRES_USER=postgres'
+#      - 'POSTGRES_PASSWORD=root'
+#      - 'POSTGRES_DB=yoga_account_db'
+#
+#  app:
+#    build: ./
+#    container_name: account_service
+#    ports:
+#      - 8081:8081
 
-  app:
-    build: ./
-    container_name: account_service
+  elasticsearch:
+    image: elasticsearch:7.17.7
+    container_name: elasticsearch_springboot
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.type=single-node"
+      - xpack.security.enabled=false
     ports:
-      - 8081:8081
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: kibana:7.17.7
+    container_name: kibana_springboot
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+  logstash:
+    image: logstash:7.17.7
+    container_name: logstash_springboot
+    #    volumes:
+    #      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+    #      - ./logstash/:/usr/share/logstash/pipeline
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    volumes:
+      - ./logstash:/etc/logstash/conf.d
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge
+
+volumes:
+  elasticsearch_data:
+    driver: local

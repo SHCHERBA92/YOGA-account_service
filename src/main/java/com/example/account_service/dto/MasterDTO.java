@@ -2,10 +2,8 @@ package com.example.account_service.dto;
 
 import com.example.account_service.enumeration.CityName;
 import com.example.account_service.enumeration.DistrictName;
-import com.example.account_service.enumeration.StatusMessage;
 import lombok.Data;
 
-import javax.persistence.Lob;
 import java.util.List;
 
 @Data

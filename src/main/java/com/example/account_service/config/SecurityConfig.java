@@ -2,7 +2,6 @@ package com.example.account_service.config;
 
 import com.example.account_service.filters.jwtfilters.AfterJWTFilter;
 import com.example.account_service.filters.jwtfilters.BeginnerJWTFilter;
-import com.example.account_service.services.security.AccountDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,13 +18,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //@Configuration
 public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
 
-    private final AccountDetailsService accountDetailsService;
     private final BeginnerJWTFilter beginnerJWTFilter;
     private final AfterJWTFilter afterJWTFilter;
 
 
-    public SecurityConfig(AccountDetailsService accountDetailsService, BeginnerJWTFilter beginnerJWTFilter, AfterJWTFilter afterJWTFilter) {
-        this.accountDetailsService = accountDetailsService;
+    public SecurityConfig(BeginnerJWTFilter beginnerJWTFilter,
+                          AfterJWTFilter afterJWTFilter) {
         this.beginnerJWTFilter = beginnerJWTFilter;
         this.afterJWTFilter = afterJWTFilter;
     }
@@ -55,7 +53,6 @@ public class SecurityConfig /*extends WebSecurityConfigurerAdapter */ {
                         "/swagger.html",
                         "/v1-api-YOGA-account",
                         "/check/code",
-
                         "/check/code/*").permitAll()
                 .anyRequest().authenticated()
                 .and()

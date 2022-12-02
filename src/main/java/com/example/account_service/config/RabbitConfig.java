@@ -27,17 +27,17 @@ public class RabbitConfig {
     /// Настройка очереди для отправки смс.
 
     @Bean(name = "queueSms")
-    public Queue queueSms(){
+    public Queue queueSms() {
         return new Queue("queueSms");
     }
 
     @Bean(name = "directExchangeSms")
-    public DirectExchange directExchangeSms(){
+    public DirectExchange directExchangeSms() {
         return new DirectExchange("smsExchange");
     }
 
     @Bean(name = "bindingSms")
-    public Binding bindingSms(@Qualifier("queueSms") Queue queue, @Qualifier("directExchangeSms") DirectExchange directExchange){
+    public Binding bindingSms(@Qualifier("queueSms") Queue queue, @Qualifier("directExchangeSms") DirectExchange directExchange) {
         return BindingBuilder.bind(queue).to(directExchange).with("smsKey");
     }
 

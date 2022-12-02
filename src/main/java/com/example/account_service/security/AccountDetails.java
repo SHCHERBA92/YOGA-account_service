@@ -1,7 +1,6 @@
 package com.example.account_service.security;
 
 import com.example.account_service.models.security.Account;
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

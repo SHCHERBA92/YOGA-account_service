@@ -7,6 +7,7 @@ import com.example.account_service.models.security.Account;
 import com.example.account_service.security.AccountDetails;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import static org.springframework.util.StringUtils.hasLength;
 import static org.springframework.util.StringUtils.hasText;
 

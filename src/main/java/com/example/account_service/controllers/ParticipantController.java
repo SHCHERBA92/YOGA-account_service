@@ -18,7 +18,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,20 +36,17 @@ public class ParticipantController {
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final ParticipantService participantService;
-    private final PasswordEncoder passwordEncoder;
     private final DistrictService districtService;
     private final CityService cityService;
 
     public ParticipantController(AccountService accountService,
                                  ModelMapper modelMapper,
                                  ParticipantService participantService,
-                                 PasswordEncoder passwordEncoder,
                                  DistrictService districtService,
                                  CityService cityService) {
         this.accountService = accountService;
         this.modelMapper = modelMapper;
         this.participantService = participantService;
-        this.passwordEncoder = passwordEncoder;
         this.districtService = districtService;
         this.cityService = cityService;
     }

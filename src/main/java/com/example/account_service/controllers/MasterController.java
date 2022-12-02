@@ -29,30 +29,23 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/master")
-//@ApiResponse
 @Tag(name = "Master API", description = "Для работы с сущностью master(тренер)")
 public class MasterController {
 
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final MasterService masterService;
-    private final DistrictService districtService;
     private final CityService cityService;
 
     public MasterController(AccountService accountService,
                             ModelMapper modelMapper,
                             MasterService masterService,
-                            DistrictService districtService,
                             CityService cityService
     ) {
         this.accountService = accountService;
         this.modelMapper = modelMapper;
         this.masterService = masterService;
-
-        this.districtService = districtService;
-
         this.cityService = cityService;
-
     }
 
 
@@ -85,7 +78,6 @@ public class MasterController {
         currentCity.setMaster(Collections.singletonList(currentMaster));
 
         masterService.addNewMaster(currentMaster);
-//        districtService.addAllDistrict(currentDistricts);
 
         if (typeRegistration.name().equals(TypeRegistration.EMAIL.name())) {
             return ResponseEntity.status(HttpStatus.FOUND)

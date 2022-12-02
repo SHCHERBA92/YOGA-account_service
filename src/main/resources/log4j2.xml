@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d %highlight{%-5level } : %msg%n%throwable" />
+        </Console>
+        <File name="FileAdded" fileName="logs/app.log">
+            <PatternLayout>
+                <Pattern>%d %p : %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+        <Syslog name="socket" format="RFC5424" host="localhost" port="5000"
+                protocol="TCP" appName="Account-Service"
+                newLine="true">
+            <PatternLayout
+                    pattern="%-5level:%msg%n%throwable" />
+        </Syslog>
+    </Appenders>
+
+    <Loggers>
+        <!-- LOG everything at INFO level -->
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="FileAdded" />
+            <AppenderRef ref="socket" />
+        </Root>
+    </Loggers>
+
+</Configuration>

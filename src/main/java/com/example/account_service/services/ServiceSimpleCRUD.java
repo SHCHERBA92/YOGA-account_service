@@ -4,7 +4,6 @@ import com.example.account_service.enumeration.CityName;
 import com.example.account_service.enumeration.OrderType;
 import com.example.account_service.enumeration.Rating;
 
-import java.io.Serializable;
 import java.util.List;
 
 public interface ServiceSimpleCRUD<T> {

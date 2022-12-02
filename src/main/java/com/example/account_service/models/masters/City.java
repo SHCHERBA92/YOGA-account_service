@@ -1,8 +1,6 @@
 package com.example.account_service.models.masters;
 
 import com.example.account_service.enumeration.CityName;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

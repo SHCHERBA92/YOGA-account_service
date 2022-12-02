@@ -1,0 +1,324 @@
+2022-11-18 09:55:38,107 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-11-18 09:55:38,125 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 38737 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-11-18 09:55:38,130 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-11-18 09:55:39,049 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-11-18 09:55:39,050 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-18 09:55:39,090 INFO : Finished Spring Data repository scanning in 35 ms. Found 5 JPA repository interfaces.
+2022-11-18 09:55:39,100 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-11-18 09:55:39,100 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-11-18 09:55:39,108 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-11-18 09:55:39,109 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-11-18 09:55:39,109 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-11-18 09:55:39,109 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-11-18 09:55:39,110 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-11-18 09:55:39,110 INFO : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2022-11-18 09:55:39,453 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-11-18 09:55:39,461 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-11-18 09:55:39,462 INFO : Starting service [Tomcat]
+2022-11-18 09:55:39,462 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-18 09:55:39,513 INFO : Initializing Spring embedded WebApplicationContext
+2022-11-18 09:55:39,514 INFO : Root WebApplicationContext: initialization completed in 1336 ms
+2022-11-18 09:55:39,686 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-18 09:55:39,707 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-18 09:55:39,766 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-18 09:55:39,806 INFO : HikariPool-1 - Starting...
+2022-11-18 09:55:39,958 INFO : HikariPool-1 - Start completed.
+2022-11-18 09:55:39,968 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-11-18 09:55:40,380 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-18 09:55:40,384 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-18 09:55:40,900 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@330d557e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ab595e8, org.springframework.security.web.context.SecurityContextPersistenceFilter@342a5b57, org.springframework.security.web.header.HeaderWriterFilter@4ebd0b52, org.springframework.security.web.authentication.logout.LogoutFilter@4a2f1ae3, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@260ccf0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7da59f6e, com.example.account_service.filters.jwtfilters.AfterJWTFilter@546ed2a0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@17810908, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@170937fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b89debc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7305191e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@623be2a0, org.springframework.security.web.session.SessionManagementFilter@110f66e3, org.springframework.security.web.access.ExceptionTranslationFilter@5319efc0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@bbf361a]
+2022-11-18 09:55:40,969 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-18 09:55:41,500 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-11-18 09:55:41,509 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-11-18 09:55:41,516 INFO : Started AccountServiceApplication in 3.946 seconds (JVM running for 4.985)
+2022-11-18 10:34:00,754 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-18 10:34:00,756 INFO : HikariPool-1 - Shutdown initiated...
+2022-11-18 10:34:00,763 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:07:02,005 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:07:02,033 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 58273 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:07:02,038 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:07:02,695 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:07:02,695 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:07:02,744 INFO : Finished Spring Data repository scanning in 42 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:07:02,756 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:07:02,757 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:07:02,768 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:07:02,769 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:07:02,769 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:07:02,770 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:07:02,771 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:07:02,771 INFO : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:07:03,148 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:07:03,171 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:07:03,171 INFO : Starting service [Tomcat]
+2022-12-02 15:07:03,172 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:07:03,230 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:07:03,230 INFO : Root WebApplicationContext: initialization completed in 1138 ms
+2022-12-02 15:07:03,447 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:07:03,473 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:07:03,544 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:07:03,595 INFO : HikariPool-1 - Starting...
+2022-12-02 15:07:03,788 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:07:03,800 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:07:04,258 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:07:04,264 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:07:04,798 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d10e2b6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@267309f7, org.springframework.security.web.context.SecurityContextPersistenceFilter@4246f904, org.springframework.security.web.header.HeaderWriterFilter@4e7b89b6, org.springframework.security.web.authentication.logout.LogoutFilter@26d02dc6, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@5dc7881d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e353e1d, com.example.account_service.filters.jwtfilters.AfterJWTFilter@49fdbe2b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@df5f657, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@46878216, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27c49f54, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69efdfd9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b69ff13, org.springframework.security.web.session.SessionManagementFilter@673fdc28, org.springframework.security.web.access.ExceptionTranslationFilter@78a7fccd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@796a7c9]
+2022-12-02 15:07:04,872 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:07:05,515 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:07:05,524 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:07:05,534 INFO : Started AccountServiceApplication in 3.787 seconds (JVM running for 4.605)
+2022-12-02 15:10:06,620 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:10:06,624 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:10:06,635 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:10:08,721 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:10:08,745 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 58752 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:10:08,748 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:10:09,332 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:10:09,333 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:10:09,377 INFO : Finished Spring Data repository scanning in 38 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:10:09,388 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:10:09,389 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:10:09,399 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:10:09,399 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:10:09,400 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:10:09,400 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:10:09,401 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:10:09,401 INFO : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:10:09,781 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:10:09,801 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:10:09,802 INFO : Starting service [Tomcat]
+2022-12-02 15:10:09,802 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:10:09,867 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:10:09,868 INFO : Root WebApplicationContext: initialization completed in 1070 ms
+2022-12-02 15:10:10,066 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:10:10,087 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:10:10,147 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:10:10,194 INFO : HikariPool-1 - Starting...
+2022-12-02 15:10:10,356 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:10:10,367 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:10:10,786 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:10:10,790 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:10:11,345 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7af2ee23, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d10e2b6, org.springframework.security.web.context.SecurityContextPersistenceFilter@16eb01d4, org.springframework.security.web.header.HeaderWriterFilter@9fd5dd0, org.springframework.security.web.authentication.logout.LogoutFilter@24bc06dd, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@6fd37997, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1f2d0ca2, com.example.account_service.filters.jwtfilters.AfterJWTFilter@1ab14636, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4fce655d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@267309f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b01b3f8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27c49f54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46878216, org.springframework.security.web.session.SessionManagementFilter@7f65639e, org.springframework.security.web.access.ExceptionTranslationFilter@790ea58f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dfaa1e4]
+2022-12-02 15:10:11,415 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:10:11,976 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:10:11,985 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:10:11,995 INFO : Started AccountServiceApplication in 3.52 seconds (JVM running for 4.135)
+2022-12-02 15:11:00,007 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:11:00,010 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:11:00,023 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:11:02,391 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:11:02,423 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 59096 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:11:02,429 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:11:02,991 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:11:02,991 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:11:03,033 INFO : Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:11:03,043 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:11:03,044 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:11:03,053 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:11:03,053 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:11:03,054 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:11:03,054 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:11:03,055 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:11:03,055 INFO : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:11:03,391 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:11:03,410 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:11:03,411 INFO : Starting service [Tomcat]
+2022-12-02 15:11:03,412 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:11:03,468 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:11:03,469 INFO : Root WebApplicationContext: initialization completed in 998 ms
+2022-12-02 15:11:03,668 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:11:03,694 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:11:03,766 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:11:03,818 INFO : HikariPool-1 - Starting...
+2022-12-02 15:11:03,982 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:11:03,993 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:11:04,437 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:11:04,441 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:11:05,020 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d4dbb34, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7af2ee23, org.springframework.security.web.context.SecurityContextPersistenceFilter@4cf1ec2, org.springframework.security.web.header.HeaderWriterFilter@5d3a238, org.springframework.security.web.authentication.logout.LogoutFilter@55bafbc1, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@1aebe759, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2db75e32, com.example.account_service.filters.jwtfilters.AfterJWTFilter@49fdbe2b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6662974a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5d10e2b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4246f904, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b01b3f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@267309f7, org.springframework.security.web.session.SessionManagementFilter@4e7b89b6, org.springframework.security.web.access.ExceptionTranslationFilter@48619f15, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70fe33fa]
+2022-12-02 15:11:05,092 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:11:05,628 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:11:05,638 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:11:05,647 INFO : Started AccountServiceApplication in 3.493 seconds (JVM running for 4.224)
+2022-12-02 15:12:03,728 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:12:03,730 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:12:03,739 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:12:05,953 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:12:05,979 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 59413 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:12:05,985 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:12:06,491 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:12:06,491 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:12:06,533 INFO : Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:12:06,543 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:12:06,544 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:12:06,553 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:06,554 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:06,555 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:06,556 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:06,556 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:06,557 INFO : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:12:06,912 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:12:06,933 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:12:06,934 INFO : Starting service [Tomcat]
+2022-12-02 15:12:06,934 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:12:06,989 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:12:06,989 INFO : Root WebApplicationContext: initialization completed in 974 ms
+2022-12-02 15:12:07,184 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:12:07,217 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:12:07,272 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:12:07,313 INFO : HikariPool-1 - Starting...
+2022-12-02 15:12:07,462 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:12:07,472 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:12:07,871 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:12:07,875 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:12:08,408 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7af2ee23, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d10e2b6, org.springframework.security.web.context.SecurityContextPersistenceFilter@16eb01d4, org.springframework.security.web.header.HeaderWriterFilter@9fd5dd0, org.springframework.security.web.authentication.logout.LogoutFilter@24bc06dd, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@6fd37997, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1f2d0ca2, com.example.account_service.filters.jwtfilters.AfterJWTFilter@77b5148c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4fce655d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@267309f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b01b3f8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27c49f54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46878216, org.springframework.security.web.session.SessionManagementFilter@7f65639e, org.springframework.security.web.access.ExceptionTranslationFilter@790ea58f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dfaa1e4]
+2022-12-02 15:12:08,477 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:12:09,026 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:12:09,035 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:12:09,045 INFO : Started AccountServiceApplication in 3.301 seconds (JVM running for 4.017)
+2022-12-02 15:12:42,149 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:12:42,152 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:12:42,160 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:12:44,375 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:12:44,406 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 59729 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:12:44,410 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:12:45,007 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:12:45,007 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:12:45,050 INFO : Finished Spring Data repository scanning in 37 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:12:45,062 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:12:45,063 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:12:45,073 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:45,074 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:45,074 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:45,075 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:45,076 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:12:45,076 INFO : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:12:45,417 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:12:45,439 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:12:45,440 INFO : Starting service [Tomcat]
+2022-12-02 15:12:45,441 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:12:45,493 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:12:45,493 INFO : Root WebApplicationContext: initialization completed in 1042 ms
+2022-12-02 15:12:45,689 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:12:45,710 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:12:45,766 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:12:45,809 INFO : HikariPool-1 - Starting...
+2022-12-02 15:12:45,963 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:12:45,973 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:12:46,381 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:12:46,386 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:12:46,941 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d4dbb34, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7af2ee23, org.springframework.security.web.context.SecurityContextPersistenceFilter@4cf1ec2, org.springframework.security.web.header.HeaderWriterFilter@5d3a238, org.springframework.security.web.authentication.logout.LogoutFilter@55bafbc1, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@1aebe759, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2db75e32, com.example.account_service.filters.jwtfilters.AfterJWTFilter@1ab14636, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6662974a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5d10e2b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4246f904, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b01b3f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@267309f7, org.springframework.security.web.session.SessionManagementFilter@4e7b89b6, org.springframework.security.web.access.ExceptionTranslationFilter@48619f15, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70fe33fa]
+2022-12-02 15:12:47,021 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:12:47,560 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:12:47,570 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:12:47,579 INFO : Started AccountServiceApplication in 3.414 seconds (JVM running for 4.195)
+2022-12-02 15:21:17,289 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:21:17,292 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:21:17,304 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:21:19,728 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:21:19,814 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 61603 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:21:19,818 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:21:20,448 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:21:20,449 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:21:20,501 INFO : Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:21:20,514 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:21:20,515 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:21:20,526 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:21:20,527 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:21:20,527 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:21:20,528 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:21:20,528 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:21:20,529 INFO : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:21:20,917 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:21:20,940 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:21:20,941 INFO : Starting service [Tomcat]
+2022-12-02 15:21:20,941 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:21:21,002 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:21:21,002 INFO : Root WebApplicationContext: initialization completed in 1133 ms
+2022-12-02 15:21:21,218 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:21:21,254 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:21:21,343 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:21:21,404 INFO : HikariPool-1 - Starting...
+2022-12-02 15:21:21,609 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:21:21,624 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:21:22,138 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:21:22,143 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:21:22,695 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c81e7c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4fe8e318, org.springframework.security.web.context.SecurityContextPersistenceFilter@cef23a8, org.springframework.security.web.header.HeaderWriterFilter@87df88d, org.springframework.security.web.authentication.logout.LogoutFilter@49616310, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@3d00e981, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74130456, com.example.account_service.filters.jwtfilters.AfterJWTFilter@65be88ae, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4598961d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@21e15093, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e4bf55b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60510791, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62cf873a, org.springframework.security.web.session.SessionManagementFilter@28da5c4d, org.springframework.security.web.access.ExceptionTranslationFilter@6e7d9d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65b07b9]
+2022-12-02 15:21:22,769 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:21:23,421 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:21:23,434 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:21:23,444 INFO : Started AccountServiceApplication in 3.986 seconds (JVM running for 4.773)
+2022-12-02 15:23:32,289 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:23:32,291 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:23:32,299 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:23:34,705 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:23:34,734 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 62571 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:23:34,737 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:23:35,338 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:23:35,338 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:23:35,386 INFO : Finished Spring Data repository scanning in 41 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:23:35,397 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:23:35,398 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:23:35,407 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:23:35,408 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:23:35,408 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:23:35,409 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:23:35,410 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:23:35,410 INFO : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:23:35,738 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:23:35,763 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:23:35,764 INFO : Starting service [Tomcat]
+2022-12-02 15:23:35,764 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:23:35,825 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:23:35,825 INFO : Root WebApplicationContext: initialization completed in 1053 ms
+2022-12-02 15:23:36,033 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:23:36,058 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:23:36,126 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:23:36,174 INFO : HikariPool-1 - Starting...
+2022-12-02 15:23:36,347 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:23:36,358 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:23:36,780 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:23:36,785 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:23:37,342 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c81e7c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4fe8e318, org.springframework.security.web.context.SecurityContextPersistenceFilter@cef23a8, org.springframework.security.web.header.HeaderWriterFilter@87df88d, org.springframework.security.web.authentication.logout.LogoutFilter@49616310, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@3d00e981, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74130456, com.example.account_service.filters.jwtfilters.AfterJWTFilter@65be88ae, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4598961d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@21e15093, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e4bf55b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60510791, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62cf873a, org.springframework.security.web.session.SessionManagementFilter@28da5c4d, org.springframework.security.web.access.ExceptionTranslationFilter@6e7d9d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65b07b9]
+2022-12-02 15:23:37,412 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:23:37,940 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:23:37,949 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:23:37,958 INFO : Started AccountServiceApplication in 3.479 seconds (JVM running for 4.238)
+2022-12-02 15:24:16,034 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:24:16,036 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:24:16,050 INFO : HikariPool-1 - Shutdown completed.
+2022-12-02 15:24:18,178 INFO : HV000001: Hibernate Validator 6.2.5.Final
+2022-12-02 15:24:18,211 INFO : Starting AccountServiceApplication using Java 11.0.17 on user-H410M-S2H-V3 with PID 62840 (/home/user/IdeaProjects/IOGA_portal/account_service/target/classes started by user in /home/user/IdeaProjects/IOGA_portal/account_service)
+2022-12-02 15:24:18,215 INFO : No active profile set, falling back to 1 default profile: "default"
+2022-12-02 15:24:18,781 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:24:18,781 INFO : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-02 15:24:18,826 INFO : Finished Spring Data repository scanning in 39 ms. Found 5 JPA repository interfaces.
+2022-12-02 15:24:18,839 INFO : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-02 15:24:18,841 INFO : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-02 15:24:18,851 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:24:18,852 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.CityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:24:18,852 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.DistrictRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:24:18,853 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.MasterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:24:18,854 INFO : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.account_service.repositoryes.ParticipantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-02 15:24:18,854 INFO : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-02 15:24:19,211 INFO : Tomcat initialized with port(s): 8081 (http)
+2022-12-02 15:24:19,231 INFO : Initializing ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:24:19,232 INFO : Starting service [Tomcat]
+2022-12-02 15:24:19,232 INFO : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-02 15:24:19,302 INFO : Initializing Spring embedded WebApplicationContext
+2022-12-02 15:24:19,302 INFO : Root WebApplicationContext: initialization completed in 1045 ms
+2022-12-02 15:24:19,499 INFO : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-02 15:24:19,521 INFO : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-02 15:24:19,582 INFO : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-02 15:24:19,628 INFO : HikariPool-1 - Starting...
+2022-12-02 15:24:19,779 INFO : HikariPool-1 - Start completed.
+2022-12-02 15:24:19,790 INFO : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-12-02 15:24:20,211 INFO : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-02 15:24:20,216 INFO : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:24:20,731 INFO : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c81e7c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4fe8e318, org.springframework.security.web.context.SecurityContextPersistenceFilter@cef23a8, org.springframework.security.web.header.HeaderWriterFilter@87df88d, org.springframework.security.web.authentication.logout.LogoutFilter@49616310, com.example.account_service.filters.jwtfilters.BeginnerJWTFilter@3d00e981, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74130456, com.example.account_service.filters.jwtfilters.AfterJWTFilter@59096b66, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4598961d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@21e15093, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e4bf55b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60510791, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62cf873a, org.springframework.security.web.session.SessionManagementFilter@28da5c4d, org.springframework.security.web.access.ExceptionTranslationFilter@6e7d9d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65b07b9]
+2022-12-02 15:24:20,807 WARN : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-02 15:24:21,334 INFO : Starting ProtocolHandler ["http-nio-8081"]
+2022-12-02 15:24:21,343 INFO : Tomcat started on port(s): 8081 (http) with context path ''
+2022-12-02 15:24:21,352 INFO : Started AccountServiceApplication in 3.396 seconds (JVM running for 4.079)
+2022-12-02 15:24:42,027 INFO : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-02 15:24:42,029 INFO : HikariPool-1 - Shutdown initiated...
+2022-12-02 15:24:42,035 INFO : HikariPool-1 - Shutdown completed.

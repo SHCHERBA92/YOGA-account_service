@@ -17,6 +17,7 @@ public class AccountServiceApplication {
     // TODO: Добавить тестирование
     // TODO: Добавить Кэширование через Redis для сущности Participant
     // TODO: Добавить фильтр и если получится пагинацию для сущности Participant
+    // TODO: Добаить логирование
     public static void main(String[] args) {
         SpringApplication.run(AccountServiceApplication.class, args);
     }
